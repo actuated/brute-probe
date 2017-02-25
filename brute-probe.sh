@@ -4,7 +4,7 @@
 # Simple script to loop aireplay-ng injection of possible (E)SSIDs, supplying a dictionary of possible SSIDs to aireplay
 # Run airodump-ng while this is running to capture the probe response and identify your target BSSID's ESSID
 varDateCreated="2/24/2017"
-varDateLastMod="2/24/2017"
+varDateLastMod="2/25/2017"
 
 varInt=""
 varChannel=""

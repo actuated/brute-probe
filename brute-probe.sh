@@ -32,7 +32,7 @@ function fnUsage {
   echo "                       line. Must be the first parameter."
   echo
   echo "-i [interface]         Specify the interface to send probe requests for. This can be the"
-  echo "                       same adapter your are using airmon-ng to listen with. It can also"
+  echo "                       same adapter your are using airodump to listen with. It can also"
   echo "                       be a different adapter, and does not have to be in monitor mode."
   echo
   echo "-a / --bssid [BSSID]   Specify the target BSSID."
@@ -88,8 +88,8 @@ if [ "$varChannelSet" = "N" ]; then
   echo
 fi
 
-varCheckAirdump=$(ps aux | grep airodump-ng | grep -v grep)
-if [ "$varCheckAirdump" = "" ]; then 
+varCheckAirodump=$(ps aux | grep airodump-ng | grep -v grep)
+if [ "$varCheckAirodump" = "" ]; then 
   echo "Can't tell if airodump-ng is running."
   echo "If not: airodump-ng -c $varChannel --bssid $varBssid [monitor interface]"
   echo

@@ -91,7 +91,7 @@ fi
 varCheckAirdump=$(ps aux | grep airodump-ng | grep -v grep)
 if [ "$varCheckAirdump" = "" ]; then 
   echo "Can't tell if airodump-ng is running."
-  echo "If not: airodump-ng -c $varChannel -a $varBssid [monitor interface]"
+  echo "If not: airodump-ng -c $varChannel --bssid $varBssid [monitor interface]"
   echo
 fi
 

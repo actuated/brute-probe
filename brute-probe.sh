@@ -1,8 +1,9 @@
 #!/bin/bash
 # brute-probe.sh
-# v1.0 - 2/24/2017 by Ted R (https://github.com/actuated)
+# v1.1 - 2/24/2017 by Ted R (https://github.com/actuated)
 # Simple script to loop aireplay-ng injection of possible (E)SSIDs, supplying a dictionary of possible SSIDs to aireplay
 # Run airodump-ng while this is running to capture the probe response and identify your target BSSID's ESSID
+# Correction in airodump check
 varDateCreated="2/24/2017"
 varDateLastMod="2/25/2017"
 
@@ -19,7 +20,7 @@ function fnUsage {
   echo
   echo "Script to loop aireplay-ng probe request injection attacks with a dictionary of (E)SSIDs."
   echo
-  echo "Run airodump-ng separately to whatever."
+  echo "Run airodump-ng separately to capture any valid probe responses."
   echo
   echo "Created $varDateCreated, last modified $varDateLastMod."
   echo
@@ -87,16 +88,16 @@ if [ "$varChannelSet" = "N" ]; then
   echo
 fi
 
-varCheckAirmon=$(ps aux | grep airmon-ng | grep -v grep)
-if [ "$varCheckAirmon" = "" ]; then 
-  echo "Can't tell if airmon-ng is running."
-  echo "If not: airmon-ng -c $varChannel -a $varBssid [monitor interface]"
+varCheckAirdump=$(ps aux | grep airodump-ng | grep -v grep)
+if [ "$varCheckAirdump" = "" ]; then 
+  echo "Can't tell if airodump-ng is running."
+  echo "If not: airodump-ng -c $varChannel -a $varBssid [monitor interface]"
   echo
 fi
 
 varListCount=$(cat "$varList" | wc -l)
 echo "Ready to use $varInt to send probes from $varList ($varListCount) for $varBssid."
-echo "Make sure airmon-ng is listening for probe responses."
+echo "Make sure airodump-ng is listening for probe responses."
 read -p "Press Enter to start..."
 echo
 

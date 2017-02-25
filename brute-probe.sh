@@ -3,7 +3,7 @@
 # v1.1 - 2/24/2017 by Ted R (https://github.com/actuated)
 # Simple script to loop aireplay-ng injection of possible (E)SSIDs, supplying a dictionary of possible SSIDs to aireplay
 # Run airodump-ng while this is running to capture the probe response and identify your target BSSID's ESSID
-# Correction in airodump check
+# 2/25/2016 - Correction in airodump check
 varDateCreated="2/24/2017"
 varDateLastMod="2/25/2017"
 
@@ -97,7 +97,6 @@ fi
 
 varListCount=$(cat "$varList" | wc -l)
 echo "Ready to use $varInt to send probes from $varList ($varListCount) for $varBssid."
-echo "Make sure airodump-ng is listening for probe responses."
 read -p "Press Enter to start..."
 echo
 
